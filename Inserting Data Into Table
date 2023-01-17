@@ -1,0 +1,10 @@
+# insert data into the asset table
+dbExecute(con, "INSERT INTO asset (id, assetname, asset_type, format, created_by, work_Item_id, Team_Member_id, project_project_id) VALUES (1, 'animation_trailer', 'vector', 'svg', 1, 2, 6, 4);")
+dbExecute(con, "INSERT INTO asset (id, assetname, asset_type, format, created_by, work_Item_id, Team_Member_id, project_project_id) VALUES (2, 'mockup_character', 'image', 'png', 3, 2, 2, 2);")
+dbExecute(con, "INSERT INTO asset (id, assetname, asset_type, format, created_by, work_Item_id, Team_Member_id, project_project_id) VALUES (3, 'mockup_environment', 'image', 'png', 4, 6, 2, 2);")
+dbExecute(con, "INSERT INTO asset (id, assetname, asset_type, format, created_by, work_Item_id, Team_Member_id, project_project_id) VALUES (4, 'video_showreel', 'video', 'mp4', 2, 4, 2, 4);")
+dbExecute(con, "INSERT INTO asset (id, assetname, asset_type, format, created_by, work_Item_id, Team_Member_id, project_project_id) VALUES (5, 'voiceover_characrer', 'audio', 'mp3', 1, 5, 1, 5);")
+
+dbExecute(con, "INSERT INTO library (id, libraryname, description, asset_id, project_project_id, asset_2_id) VALUES (1, 'Library1', 'asset_libary', 1, 1, 2);")
+dbExecute(con, "INSERT INTO library (id, libraryname, description, asset_id, project_project_id, asset_2_id) VALUES (2, 'Library2', 'scooby_doo_audio', 5, 2, 3);")
+dbExecute(con, "INSERT INTO library (id, libraryname, description, asset_id, project_project_id, asset_2_id) VALUES (3, 'Library3', 'unreal_engine_data', 7, 3, 4);"
