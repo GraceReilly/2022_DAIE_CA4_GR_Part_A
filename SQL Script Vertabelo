@@ -1,0 +1,61 @@
+-- Created by Vertabelo (http://vertabelo.com)
+-- Last modification date: 2023-01-05 11:35:55.924
+
+-- tables
+-- Table: Team_Member
+CREATE TABLE Team_Member (
+    id int NOT NULL,
+    firstname varchar(20) NOT NULL,
+    lastname varchar(20) NOT NULL,
+    role varchar(20) NOT NULL,
+    age int NULL,
+    CONSTRAINT Team_Member_pk PRIMARY KEY (id)
+);
+
+-- Table: asset
+CREATE TABLE asset (
+    id int NOT NULL,
+    assetname varchar(20) NOT NULL,
+    asset_type varchar(20) NOT NULL,
+    format varchar(20) NOT NULL,
+    created_by int NOT NULL,
+    work_Item_id int NOT NULL,
+    Team_Member_id int NOT NULL,
+    project_project_id int NOT NULL,
+    CONSTRAINT asset_pk PRIMARY KEY (id)
+);
+
+-- Table: library
+CREATE TABLE library (
+    id int NOT NULL,
+    libraryname varchar(20) NOT NULL,
+    description text NOT NULL,
+    asset_id int NOT NULL,
+    project_project_id int NOT NULL,
+    asset_2_id int NOT NULL,
+    CONSTRAINT library_pk PRIMARY KEY (id)
+);
+
+-- Table: project
+CREATE TABLE project (
+    project_id int NOT NULL,
+    projectname varchar(20) NOT NULL,
+    description text NOT NULL,
+    deliverydate date NOT NULL,
+    team_member_id int NOT NULL,
+    Team_Member_id int NOT NULL,
+    CONSTRAINT project_pk PRIMARY KEY (project_id)
+);
+
+-- Table: work_Item
+CREATE TABLE work_Item (
+    id int NOT NULL,
+    name varchar(20) NOT NULL,
+    status varchar(20) NOT NULL,
+    assigned_to int NOT NULL,
+    Team_Member_id int NOT NULL,
+    project_project_id int NOT NULL,
+    CONSTRAINT work_Item_pk PRIMARY KEY (id)
+);
+
+-- End of file.
