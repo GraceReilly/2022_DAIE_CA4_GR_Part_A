@@ -1,0 +1,20 @@
+```{r}
+#install and load the RSQLite package
+install.packages("RSQLite")
+library(RSQLite)
+
+#connect to SQLite file
+con <- dbConnect(SQLite(), dbname = "daie_ca4_data.sqlite")
+
+#drop the tables if they already exists
+dbGetQuery(con, "DROP TABLE IF EXISTS Team_Member;")
+dbGetQuery(con, "DROP TABLE IF EXISTS asset;")
+dbGetQuery(con, "DROP TABLE IF EXISTS library;")
+dbGetQuery(con, "DROP TABLE IF EXISTS project;")
+dbGetQuery(con, "DROP TABLE IF EXISTS work_Item;")
+
+#create the Team_Member table
+dbGetQuery(con, "CREATE TABLE Team_Member (id int NOT NULL, firstname varchar(20) NOT NULL, lastname varchar(20) NOT NULL, role varchar(20) NOT NULL, age int NULL, CONSTRAINT Team_Member_pk PRIMARY KEY (id));")
+
+#create the asset table
+dbGetQuery(con, "CREATE TABLE asset (id int NOT NULL, assetname varchar(20) NOT NULL, asset_type varchar(20) NOT NULL, format varchar(20) NOT NULL, created_by int NOT NULL, work_Item_id int NOT NULL, Team_Member_id int NOT NULL, project_project_id int NOT NULL, CONSTRAINT asset_pk PRIMARY KEY (id));")
