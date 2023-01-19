@@ -1,0 +1,44 @@
+
+---
+title: "2022_DAIE_CA4_GR"
+subtitle: 'Database Design & SQL Querying '
+date: "2023-01-11"
+output:
+  html_notebook:
+    toc: yes
+    toc_depth: '2'
+  html_document:
+    toc: yes
+    toc_title: Table Of Contents
+    toc_float: yes
+    toc_depth: 2
+    fig_caption: no
+    lof: yes
+    number_sections: no
+    code_folding: hide
+    theme: paper
+  pdf_document:
+    toc: yes
+    toc_depth: '2'
+---
+```{r echo=FALSE}
+library(RSQLite)
+library(DBI)
+
+# Connectung to SQLite database on PC
+con <- dbConnect(SQLite(), dbname = "~/CA1/daie_ca4_data.sqlite")
+
+# Retrieving the data from Team_Member table and printing the data in team member table
+Team_Member_data <- dbReadTable(con, "Team_Member")
+print(Team_Member_data)
+
+# Retrieving the data from asset table and print
+asset_data <- dbReadTable(con, "asset")
+print(asset_data)
+
+# Retrieving the data from library table
+library_data <- dbReadTable(con, "library")
+print(library_data)
+
+# Close the database connection
+dbDisconnect(con)
